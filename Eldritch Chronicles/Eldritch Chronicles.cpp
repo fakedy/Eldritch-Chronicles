@@ -1,39 +1,23 @@
 
 #include <iostream>
+#include "Console.h"
 
-std::string readInput();
-void godMessage(std::string message);
 
 int main()
 {
-    std::cout << "Hello Adventurer!\n";
+    Console::godMessage("Hello Adventurer!");
     
-    std::cout << "1 : New Game!\n";
+    Console::godMessage("1 : New Game!");
 
-    std::cout << "1 : Load Game\n";
+    Console::godMessage("2 : Load Game!");
 
 
-    if (readInput() == "1") {
-        godMessage("Very well, let your story begin.");
+    if (Console::readInput() == "1") {
+        Console::godMessage("Very well, let your story begin.");
     }
 
-
-
-
 }
 
 
-std::string readInput() {
 
-    std::string answer;
-    std::cin >> answer;
-
-    return answer;
-}
-
-void godMessage(std::string message) {
-
-    std::cout << message << std::endl;
-
-}
 

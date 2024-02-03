@@ -12,19 +12,15 @@ class Room
 
 public:
 
-	Room() {
-
-	}
+	Room();
 	
-	~Room() {
-
-	}
+	~Room();
 
 
 private:
 
-	std::vector<Item> items;
-	std::vector<Entity> Entities;
+	std::vector<std::shared_ptr<Item>> items;
+	std::vector<std::shared_ptr<Entity>> Entities;
 
 };
 
