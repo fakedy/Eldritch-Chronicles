@@ -6,7 +6,9 @@
 
 class Player :	protected Entity
 {
+public:
 
+private:
 
 
 

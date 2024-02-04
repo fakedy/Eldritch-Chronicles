@@ -1,23 +1,50 @@
+#include <memory>
 
-#include <iostream>
 #include "Console.h"
+#include "Game.h"
 
+void newGame();
+void loadGame();
+
+
+std::unique_ptr<Game> game;
 
 int main()
 {
-    Console::godMessage("Hello Adventurer!");
-    
-    Console::godMessage("1 : New Game!");
+    while (true) {
 
-    Console::godMessage("2 : Load Game!");
+        Console::godMessage("Hello Adventurer!");
+
+        Console::godMessage("1 : New Game!");
+
+        Console::godMessage("2 : Load Game!");
 
 
-    if (Console::readInput() == "1") {
-        Console::godMessage("Very well, let your story begin.");
+        std::string answer = Console::readInput();
+
+        if (answer == "1") {
+            newGame();
+        }
+        else if (answer == "2") {
+            loadGame();
+        }
+        else {
+            Console::godMessage("Invalid Input");
+        }
     }
-
 }
 
+
+
+void newGame() {
+    Console::godMessage("Very well, let your story begin.");
+    game = std::make_unique<Game>();
+}
+
+void loadGame() {
+    Console::godMessage("Loading save");
+    game = std::make_unique<Game>();
+}
 
 
 

@@ -2,7 +2,9 @@
 #include "Entity.h"
 class Monster :	protected Entity
 {
+public:
 
+private:
 
 
 

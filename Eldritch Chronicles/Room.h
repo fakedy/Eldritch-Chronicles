@@ -3,13 +3,12 @@
 #include<vector>
 #include<memory>
 
-#include "Item.h";
+#include "Item.h"
 #include "Entity.h"
 
 
 class Room
 {
-
 public:
 
 	Room();
