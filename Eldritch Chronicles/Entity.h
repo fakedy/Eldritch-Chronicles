@@ -1,26 +1,42 @@
 #pragma once
-
+#include <memory>
+#include <vector>
 #include<string>
+
+#include "Item.h"
 
 class Entity
 {
 public:
 
-	std::string getName() const;
-	int getAge() const;
-	int getHealth() const;
+	// An entity is representing a living thing (or dead, who knows)
 
+	std::string getName() const;
 	void setName(const std::string &name);
-	void setAge(int age);
-	void setHealth(int health);
+
 
 
 
 protected:
 
+	enum Alignment
+	{
+		Good,
+		Neutral,
+		Evil
+	};
+
 	std::string name;
+	std::vector<Item> inventory;
+
+	Alignment alignment;
+	bool alive;
 	int age;
 	int health;
+	int stamina;
+	int strength;
+	int agility;
+	int intellect;
 
 
 

@@ -5,7 +5,7 @@
 
 namespace Console
 {
-
+    // namespace for general console output commands.
 
     std::string readInput();
 

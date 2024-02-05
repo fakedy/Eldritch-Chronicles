@@ -10,6 +10,7 @@
 class Room
 {
 public:
+	// A room can be any location in the game where the player is.
 
 	Room();
 	
