@@ -1,7 +1,8 @@
 
 #include "Game.h"
 #include "Console.h"
-#include "travelCommand.h"
+#include "TravelCommand.h"
+#include "HelpCommand.h"
 
 
 std::unordered_map<std::string, std::unique_ptr<Command>> Game::commands;
@@ -32,14 +33,10 @@ void Game::update() {
 
 	Console::godMessage("");
 	Console::godMessage("What would you like to do?");
-	std::string answer = Console::readInput();
-	if (answer == "help") {
+	std::vector<std::string> answer = Console::readInput();
 
-		printCommands();
-
-	}
-	if (commands.find(answer) != commands.end()) {
-		commands.at(answer).get()->execute("");
+	if (commands.find(answer.front()) != commands.end()) { // check if the command exists
+		commands.at(answer.front()).get()->execute("");  // execute command + args
 	}
 	else {
 		Console::godMessage("invalid command");
@@ -47,16 +44,7 @@ void Game::update() {
 		
 }
 
-void Game::printCommands() {
-
-	for ( auto &pair : commands) {
-		Console::godMessage(pair.second.get()->name);
-		Console::godMessage(pair.second.get()->syntax);
-		Console::godMessage(pair.second.get()->description);
-		Console::godMessage("");
-	}
-}
-
-void Game::populateCommands() {
+void Game::populateCommands() { // might want to move this to separate class in order to not have 2000 imports and stuff
 	commands.emplace("travel", std::make_unique<TravelCommand>());
+	commands.emplace("help", std::make_unique<HelpCommand>());
 }			

@@ -1,4 +1,5 @@
 #include <memory>
+#include <vector>
 
 #include "Console.h"
 #include "Game.h"
@@ -20,17 +21,18 @@ int main()
         Console::godMessage("2 : Load Game!");
 
 
-        std::string answer = Console::readInput();
+        std::vector<std::string> answer = Console::readInput();
 
-        if (answer == "1") {
+        if (answer.front() == "1") {
             newGame();
         }
-        else if (answer == "2") {
+        else if (answer.front() == "2") {
             loadGame();
         }
         else {
             Console::godMessage("Invalid Input");
         }
+
     }
 }
 

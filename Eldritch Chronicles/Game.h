@@ -17,12 +17,11 @@ public:
 
 	void loadGame();
 	static void printCommands();
-
+	static std::unordered_map<std::string, std::unique_ptr<Command>> commands;
 	
 
 private:
 	std::unique_ptr<Room> room;
-	static std::unordered_map<std::string, std::unique_ptr<Command>> commands;
 
 	void update();
 	void populateCommands();

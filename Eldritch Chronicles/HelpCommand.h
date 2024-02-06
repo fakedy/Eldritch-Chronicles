@@ -1,6 +1,7 @@
 #pragma once
 #include "Command.h"
 #include "Console.h"
+#include "Game.h"
 class HelpCommand : public Command
 {
 public:
@@ -11,8 +12,12 @@ public:
 	}
 
 	void execute(std::string direction) override {
-		Console::godMessage("You move");
-		Console::godMessage(direction); // there is no way to concat strings in my code yet.
+
+		for (auto& pair : Game::commands) {
+			Console::godMessage(pair.second.get()->syntax);
+			Console::godMessage(pair.second.get()->description);
+			Console::godMessage("");
+		}
 	}
 };
 
