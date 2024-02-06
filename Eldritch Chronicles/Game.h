@@ -1,6 +1,7 @@
 #pragma once
 #include<memory>
 #include<vector>
+#include <unordered_map>
 #include "Room.h"
 #include "Command.h"
 
@@ -21,7 +22,7 @@ public:
 
 private:
 	std::unique_ptr<Room> room;
-	static std::vector<std::unique_ptr<Command>> basicCommands;
+	static std::unordered_map<std::string, std::unique_ptr<Command>> commands;
 
 	void update();
 	void populateCommands();

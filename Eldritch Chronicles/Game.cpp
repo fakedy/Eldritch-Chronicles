@@ -4,8 +4,7 @@
 #include "travelCommand.h"
 
 
-std::vector<std::unique_ptr<Command>> Game::basicCommands;
-
+std::unordered_map<std::string, std::unique_ptr<Command>> Game::commands;
 Game::Game() {
 
 	room = std::unique_ptr<Room>();
@@ -34,27 +33,30 @@ void Game::update() {
 	Console::godMessage("");
 	Console::godMessage("What would you like to do?");
 	std::string answer = Console::readInput();
-	// temp doing stuff like this
-	if (answer == "commands") {
+	if (answer == "help") {
 
 		printCommands();
 
 	}
+	if (commands.find(answer) != commands.end()) {
+		commands.at(answer).get()->execute("");
+	}
 	else {
 		Console::godMessage("invalid command");
 	}
-
+		
 }
 
-void Game::printCommands() {	// lets the player see the available commands.
+void Game::printCommands() {
 
-	for (int i = 0; i < basicCommands.size(); i++) {
-		basicCommands[i].get()->name;
+	for ( auto &pair : commands) {
+		Console::godMessage(pair.second.get()->name);
+		Console::godMessage(pair.second.get()->syntax);
+		Console::godMessage(pair.second.get()->description);
+		Console::godMessage("");
 	}
-
 }
 
 void Game::populateCommands() {
-	// TODO: implement constructor to populate commands.
-	basicCommands.push_back(std::make_unique<TravelCommand>());
-}
+	commands.emplace("travel", std::make_unique<TravelCommand>());
+}			
