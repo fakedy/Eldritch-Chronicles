@@ -24,10 +24,10 @@ int main()
         std::vector<std::string> answer = Console::readInput();
         
         // TODO make sure to handle args...
-        if (answer.front() == "1") {
+        if (answer.front() == "1" && answer.size() == 1) {
             newGame();
         }
-        else if (answer.front() == "2") {
+        else if (answer.front() == "2" && answer.size() == 1) {
             loadGame();
         }
         else {

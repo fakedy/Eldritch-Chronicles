@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "Command.h"
 #include "Console.h"
 #include "Game.h"
@@ -11,12 +12,12 @@ public:
 		this->description = "Prints a list of usable commands or gives more info on a specific command";
 	}
 
-	void execute(std::string direction) override {
+	void execute(std::vector<std::string> args) override {
 
 		for (auto& pair : Game::commands) {
 			Console::godMessage(pair.second.get()->syntax);
 			Console::godMessage(pair.second.get()->description);
-			Console::godMessage("");
+			Console::godMessage("-------------------------------------------");
 		}
 	}
 };

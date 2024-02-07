@@ -6,6 +6,7 @@
 
 
 std::unordered_map<std::string, std::unique_ptr<Command>> Game::commands;
+
 Game::Game() {
 
 	room = std::unique_ptr<Room>();
@@ -36,7 +37,8 @@ void Game::update() {
 	std::vector<std::string> answer = Console::readInput();
 
 	if (commands.find(answer.front()) != commands.end()) { // check if the command exists
-		commands.at(answer.front()).get()->execute("");  // execute command + args
+
+		commands.at(answer.front()).get()->execute(answer);  // execute command + args
 	}
 	else {
 		Console::godMessage("invalid command");
@@ -44,7 +46,8 @@ void Game::update() {
 		
 }
 
-void Game::populateCommands() { // might want to move this to separate class in order to not have 2000 imports and stuff
-	commands.emplace("travel", std::make_unique<TravelCommand>());
+void Game::populateCommands() { // might want to move this to separate class in order to not have 2000 imports in the game class.
 	commands.emplace("help", std::make_unique<HelpCommand>());
+	commands.emplace("travel", std::make_unique<TravelCommand>());
+	
 }			
