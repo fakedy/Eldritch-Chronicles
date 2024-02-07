@@ -15,9 +15,7 @@ int main()
     while (true) {
 
         Console::godMessage("Hello Adventurer!");
-
         Console::godMessage("1 : New Game!");
-
         Console::godMessage("2 : Load Game!");
 
 

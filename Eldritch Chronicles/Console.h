@@ -13,6 +13,9 @@ namespace Console
 
     void godMessage(std::string message);
 
+    void clearConsole();
+    void newLine();
+
 
 
 

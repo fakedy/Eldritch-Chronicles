@@ -32,9 +32,11 @@ void Game::loadGame() {
 
 void Game::update() {
 
-	Console::godMessage("");
+	Console::clearConsole();
 	Console::godMessage("What would you like to do?");
+	Console::newLine();
 	std::vector<std::string> answer = Console::readInput();
+	Console::newLine();
 
 	if (commands.find(answer.front()) != commands.end()) { // check if the command exists
 
@@ -49,5 +51,4 @@ void Game::update() {
 void Game::populateCommands() { // might want to move this to separate class in order to not have 2000 imports in the game class.
 	commands.emplace("help", std::make_unique<HelpCommand>());
 	commands.emplace("travel", std::make_unique<TravelCommand>());
-	
 }			

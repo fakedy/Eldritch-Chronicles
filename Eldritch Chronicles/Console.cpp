@@ -22,6 +22,16 @@ void Console::godMessage(std::string message) { // This is the general console w
 
 }
 
+void Console::clearConsole() {
+    // TODO
+    // Temp thing below
+    std::cout << "" << std::endl;
+}
+
+void Console::newLine() {
+    std::cout << "" << std::endl;
+}
+
 
 
 std::vector<std::string> argParse(std::string string) {
