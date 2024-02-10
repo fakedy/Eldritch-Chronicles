@@ -16,7 +16,14 @@ public:
 	int id;
 	std::string description;
 
-	Room(int id);
+	int n;
+	int s;
+	int w;
+	int e;
+
+
+
+	Room(int id, const json& location);
 	
 	~Room();
 

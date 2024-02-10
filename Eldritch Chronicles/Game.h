@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include "Room.h"
 #include "Command.h"
+#include "GameMap.h"
 
 class Game
 {
@@ -19,10 +20,10 @@ public:
 	static void printCommands();
 	static std::unordered_map<std::string, std::unique_ptr<Command>> commands;
 	
+	static std::unique_ptr<GameMap> gameMap;
+	static Room* room;
 
 private:
-	std::unique_ptr<Room> room;
-
 	void update();
 	void populateCommands();
 

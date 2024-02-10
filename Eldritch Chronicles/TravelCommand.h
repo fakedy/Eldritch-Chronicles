@@ -1,8 +1,7 @@
 #pragma once
 #include "Command.h"
 #include "Console.h"
-
-
+#include <cctype>
 
 class TravelCommand : public Command
 {
@@ -15,12 +14,8 @@ public:
 
 	void execute(std::vector<std::string> args) override {	// args actually contain the original command
 		if (args.size() == 2) {
-			if (validDirection(args[1])) {
-				Console::godMessage("You travel " + args[1]);
-			}
-			else {
-				Console::godMessage("Invalid Direction");
-			}
+			Console::godMessage("You travel " + args[1]);
+			travel(args[1]);
 		}
 		else {
 			Console::godMessage("Invalid Arguments");
@@ -29,9 +24,32 @@ public:
 
 private:
 
-	bool validDirection(std::string direction) const {
-		// TODO: Link with game's current room information
-		return true;
+
+	void travel(std::string direction) const {
+
+		// make direction lowercase
+		std::string dir;
+		for (char c : direction) {
+			dir += std::tolower(c);
+		}
+
+		// 0 is an invalid direction
+		if (dir == "n" && Game::room->n != 0) {
+			Game::room = Game::gameMap.get()->getRoom(Game::room->n);
+		}
+		else if (dir == "s" && Game::room->s != 0) {
+			Game::room = Game::gameMap.get()->getRoom(Game::room->s);
+		}
+		else if (dir == "w" && Game::room->w != 0) {
+			Game::room = Game::gameMap.get()->getRoom(Game::room->w);
+		}
+		else if (dir == "e" && Game::room->e != 0) {
+			Game::room = Game::gameMap.get()->getRoom(Game::room->e);
+		}
+		else {
+			Console::godMessage("Invalid Direction");
+		}
+
 	}
 
 };

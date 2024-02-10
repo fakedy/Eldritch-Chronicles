@@ -9,6 +9,9 @@
 
 
 std::unordered_map<std::string, std::unique_ptr<Command>> Game::commands;
+std::unique_ptr<GameMap> Game::gameMap;
+Room* Game::room;
+
 using json = nlohmann::json;
 
 Game::Game() {
@@ -18,9 +21,9 @@ Game::Game() {
 	json j = json::parse(file);
 	// TEMPORARY
 
-	std::unique_ptr<GameMap> gameMap = std::make_unique<GameMap>();
+	gameMap = std::make_unique<GameMap>();
 	gameMap.get()->loadMaps(j);
-	room = std::unique_ptr<Room>();
+	room = gameMap.get()->getRoom(1);
 	
 	
 
@@ -46,6 +49,7 @@ void Game::loadGame() {
 void Game::update() {
 
 	Console::clearConsole();
+	Console::godMessage("You are in " + room->name);
 	Console::godMessage("What would you like to do?");
 	Console::newLine();
 	std::vector<std::string> answer = Console::readInput();
