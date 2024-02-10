@@ -21,7 +21,6 @@ public:
 			else {
 				Console::godMessage("Invalid Direction");
 			}
-
 		}
 		else {
 			Console::godMessage("Invalid Arguments");
@@ -34,8 +33,6 @@ private:
 		// TODO: Link with game's current room information
 		return true;
 	}
-
-
 
 };
 

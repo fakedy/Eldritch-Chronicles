@@ -20,8 +20,6 @@ public:
 		if (args.size() == 1) {
 			for (auto& pair : Game::commands) {
 				Console::godMessage(pair.second.get()->syntax);
-				Console::godMessage(pair.second.get()->description);
-				Console::godMessage("-------------------------------------------");
 			}
 		}
 		
@@ -29,7 +27,6 @@ public:
 			if (Game::commands.find(args[1]) != Game::commands.end()) { // check if the command exists
 				Console::godMessage(Game::commands.at(args[1]).get()->syntax);
 				Console::godMessage(Game::commands.at(args[1]).get()->description);
-				Console::godMessage("-------------------------------------------");
 			}
 		}
 	}
