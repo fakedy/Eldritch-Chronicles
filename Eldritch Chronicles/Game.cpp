@@ -3,13 +3,26 @@
 #include "Console.h"
 #include "TravelCommand.h"
 #include "HelpCommand.h"
+#include "GameMap.h"
+#include <iostream>
+#include <fstream>
 
 
 std::unordered_map<std::string, std::unique_ptr<Command>> Game::commands;
+using json = nlohmann::json;
 
 Game::Game() {
 
+	// TEMPORARY
+	std::ifstream file("maps/season_valley.json");
+	json j = json::parse(file);
+	// TEMPORARY
+
+	std::unique_ptr<GameMap> gameMap = std::make_unique<GameMap>();
+	gameMap.get()->loadMaps(j);
 	room = std::unique_ptr<Room>();
+	
+	
 
 	
 	populateCommands();

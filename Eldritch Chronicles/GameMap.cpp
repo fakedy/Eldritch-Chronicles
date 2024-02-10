@@ -2,14 +2,12 @@
 #include "json.hpp"
 
 
-std::unordered_map<int, std::unique_ptr<Room>> GameMap::rooms;
-
 void GameMap::loadMaps(const json& j) {
 
-	int id = 0;
 
-
-
-	rooms.emplace(0,std::unique_ptr<Room>());
+	for (const auto& location : j["locations"]) {
+		int id = location.at("id").get<int>();
+		rooms.emplace(id, std::make_unique<Room>(id));
+	}
 
 }

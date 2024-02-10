@@ -1,0 +1,60 @@
+{
+    "locations": [
+        {
+            "id": 1,
+            "name": "season_valley",
+            "description": "A valley where all four seasons coexist unnaturally.",
+            "neighbours": {
+                "n": 2,
+                "s": 3,
+                "w": 4,
+                "e": 5
+            }
+        },
+        {
+            "id": 2,
+            "name": "winter_valley",
+            "description": "A valley full of snow and cold",
+            "neighbours": {
+                "n": "0",
+                "s": "3",
+                "w": "0",
+                "e": "0"
+            }
+        },
+        {
+            "id": 3,
+            "name": "summer_valley",
+            "description": "A beautiful grassy valley",
+            "neighbours": {
+                "n": "2",
+                "s": "0",
+                "w": "0",
+                "e": "0"
+            }
+        },
+        {
+            "id": 4,
+            "name": "spring_valley",
+            "description": "A valley where spring is always approaching but never arriving",
+            "neighbours": {
+                "n": "0",
+                "s": "0",
+                "w": "0",
+                "e": "1"
+            }
+        },
+        {
+            "id": 5,
+            "name": "autumn_valley",
+            "description": "A valley perpetually stuck in autumn",
+            "neighbours": {
+                "n": "0",
+                "s": "0",
+                "w": "1",
+                "e": "0"
+            }
+        }
+
+    ]
+}

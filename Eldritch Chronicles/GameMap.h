@@ -6,15 +6,9 @@
 
 class GameMap
 {
-
-	static void loadMaps(const json& j);
+public:
+	void loadMaps(const json& j);
 	// store all rooms in memory
-private:
-	static std::unordered_map<int, std::unique_ptr<Room>> rooms;
-	
-
-
-
-
+	std::unordered_map<int, std::unique_ptr<Room>> rooms;
 };
 

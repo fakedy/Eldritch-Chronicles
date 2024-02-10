@@ -31,7 +31,6 @@ int main()
         else {
             Console::godMessage("Invalid Input");
         }
-
     }
 }
 
