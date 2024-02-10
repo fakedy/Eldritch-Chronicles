@@ -1,8 +1,15 @@
 #include "GameMap.h"
+#include "json.hpp"
 
+
+std::unordered_map<int, std::unique_ptr<Room>> GameMap::rooms;
 
 void GameMap::loadMaps(const json& j) {
-	j.at("id").get_to(id);
-	j.at("name").get_to(name);
-	j.at("description").get_to(description);
+
+	int id = 0;
+
+
+
+	rooms.emplace(0,std::unique_ptr<Room>());
+
 }
