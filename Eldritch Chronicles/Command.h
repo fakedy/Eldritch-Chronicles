@@ -6,7 +6,7 @@ class Command
 public:
 	// The super class for all commands.
 	virtual ~Command() = default;
-	virtual void execute(std::vector<std::string> args) = 0;
+	virtual void execute(std::vector<std::string> &args) = 0;
 
 
 	std::string name;

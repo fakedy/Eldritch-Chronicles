@@ -12,7 +12,7 @@ public:
 		this->description = "Moves the player in specified direction. directions = N, S, W, E";
 	}
 
-	void execute(std::vector<std::string> args) override {	// args actually contain the original command
+	void execute(std::vector<std::string> &args) override {	// args[] is original command
 		if (args.size() == 2) {
 			Console::godMessage("You travel " + args[1]);
 			travel(args[1]);
@@ -25,7 +25,7 @@ public:
 private:
 
 
-	void travel(std::string direction) const {
+	void travel(std::string &direction) {
 
 		// make direction lowercase
 		std::string dir;
@@ -35,7 +35,7 @@ private:
 
 		// 0 is an invalid direction
 		if (dir == "n" && Game::room->n != 0) {
-			Game::room = Game::gameMap.get()->getRoom(Game::room->n);
+			Game::room = Game::gameMap.get()->getRoom(Game::room->n); // Change current room to room at direction
 		}
 		else if (dir == "s" && Game::room->s != 0) {
 			Game::room = Game::gameMap.get()->getRoom(Game::room->s);
@@ -49,7 +49,6 @@ private:
 		else {
 			Console::godMessage("Invalid Direction");
 		}
-
 	}
 
 };

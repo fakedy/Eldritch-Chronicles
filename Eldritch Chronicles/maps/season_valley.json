@@ -17,8 +17,8 @@
             "description": "A valley full of snow and cold",
             "neighbours": {
                 "n": 0,
-                "s": 3,
-                "w": 4,
+                "s": 1,
+                "w": 0,
                 "e": 0
             }
         },
@@ -27,7 +27,7 @@
             "name": "summer_valley",
             "description": "A beautiful grassy valley",
             "neighbours": {
-                "n": 2,
+                "n": 1,
                 "s": 0,
                 "w": 0,
                 "e": 0

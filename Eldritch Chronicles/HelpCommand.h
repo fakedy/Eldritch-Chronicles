@@ -12,7 +12,7 @@ public:
 		this->description = "Prints a list of usable commands or gives more info on a specific command";
 	}
 
-	void execute(std::vector<std::string> args) override {	// args actually contain the original command
+	void execute(std::vector<std::string> &args) override {	// args[] is original command
 		if (args.size() > 2) {
 			Console::godMessage("Invalid Arguments");
 		}

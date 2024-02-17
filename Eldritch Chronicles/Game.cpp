@@ -3,6 +3,7 @@
 #include "Console.h"
 #include "TravelCommand.h"
 #include "HelpCommand.h"
+#include "LookCommand.h"
 #include "GameMap.h"
 #include <iostream>
 #include <fstream>
@@ -62,10 +63,10 @@ void Game::update() {
 	else {
 		Console::godMessage("invalid command");
 	}
-		
 }
 
 void Game::populateCommands() { // might want to move this to separate class in order to not have 2000 imports in the game class.
 	commands.emplace("help", std::make_unique<HelpCommand>());
 	commands.emplace("travel", std::make_unique<TravelCommand>());
+	commands.emplace("look", std::make_unique<LookCommand>());
 }			

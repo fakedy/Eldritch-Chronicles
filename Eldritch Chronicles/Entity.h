@@ -37,8 +37,5 @@ protected:
 	int strength;
 	int agility;
 	int intellect;
-
-
-
 };
 
