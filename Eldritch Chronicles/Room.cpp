@@ -1,4 +1,5 @@
 #include "Room.h"
+#include <memory>
 
 
 
@@ -16,10 +17,18 @@
 
 	Room::Room(int id, const json& location) {
 		this->id = id;
+		this->content = std::make_unique<Content>();
 		read_map(location);
 	}
+
 
 	Room::~Room() {
 
 	}
+
+	const Room::Content& Room::getContent() const { // interesting memory situation to consider
+		// a read only function that returns a reference to the content struct
+		return *content;
+	}
+
 

@@ -15,8 +15,6 @@ public:
 	void setName(const std::string &name);
 
 
-
-
 protected:
 
 	enum Alignment

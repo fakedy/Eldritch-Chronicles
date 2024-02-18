@@ -5,7 +5,7 @@
 
 
 
-std::vector<std::string> argParse(std::string string);
+std::vector<std::string> argParse(std::string &string);
 
 
 std::vector<std::string> Console::readInput() {
@@ -34,7 +34,7 @@ void Console::newLine() {
 
 
 
-std::vector<std::string> argParse(std::string string) {
+std::vector<std::string> argParse(std::string &string) {
     std::vector<std::string> result;
 
     int lastSpace = 0;

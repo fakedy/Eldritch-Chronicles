@@ -17,7 +17,6 @@ public:
 
 
 	void loadGame();
-	static void printCommands();
 	static std::unordered_map<std::string, std::unique_ptr<Command>> commands;
 	
 	static std::unique_ptr<GameMap> gameMap;

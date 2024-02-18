@@ -18,7 +18,7 @@ using json = nlohmann::json;
 Game::Game() {
 
 	// TEMPORARY
-	std::ifstream file("maps/season_valley.json");
+	std::ifstream file("data/maps/season_valley.json");
 	json j = json::parse(file);
 	// TEMPORARY
 
